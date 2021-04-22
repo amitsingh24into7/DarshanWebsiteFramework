@@ -1,0 +1,98 @@
+<!-- <nb-card size="giant">
+  <div class="grid-container">
+    <div class="grid-view" >
+      <div style="border: 8px solid #ffffff;" class="camera"
+           *ngFor="let camera of servicelistobj"
+           [style.background-image]="'url(' +imagelocation+ camera.ImageURL + ')'"
+           (click)="selectImage(imagelocation+ camera.ImageURL)">
+        
+      </div>
+    </div>
+
+  </div>
+</nb-card> -->
+
+
+<div class="row">
+  <div class="col-md-12 col-lg-12">
+    <nb-card >
+      <nb-tabset>
+      
+        <nb-tab tabTitle="Picture / Video Albums​">
+          
+          <!-- <table style="width: 100%;">
+           
+            <tbody>
+              <tr  *ngFor="let item of  eventgal">
+                <td  style="padding: 10px;"><a  target="_blank" style="color: white;" [href]="item.photo-album-page-url"><u>{{item.photo-album-page-name}}</u></a></td>
+                
+                <td  style="padding: 10px;"><a target="_blank" style="color: white;" [href]="item.video-album-page-url">{{item.video-album-page-name}}</a></td>
+              </tr>
+             
+            </tbody>
+          </table>  -->
+          <div  class="row">
+            <div  class="col-md-3">
+              <label style="color: white;"><b>Event</b> </label>
+            </div>
+            <div  class="col-md-3">
+              <label style="color: white;"><b>Date</b> </label>
+            </div>
+            <div  class="col-md-3">
+              <label style="color: white;"><b>Picture Album​</b> </label>
+            </div>
+            <div  class="col-md-3">
+              <label style="color: white;"><b>Video Recording​</b> </label>
+            </div>
+          </div>
+          <div  *ngFor="let items of  eventgal" >
+            <!-- *ngIf="item.photo-album-page-url || item.photo-album-page-url" -->
+            <div  *ngIf="items.photoalbumpageurl || items.photoalbumpageurl"  style="border-bottom: 1px solid #ffffff; " class="row">
+             
+                <div  class="col-md-3">
+                  <!-- {{items|json}} -->
+                  <label style="color: white; font-size: 13px;">{{items.EventsTitle}}</label>  
+                 
+                </div>
+                <div  class="col-md-3">
+                  <!-- {{items|json}} -->
+                  <label *ngIf="items.EventFromDate==items.EventToDate" style="color: white; font-size: 13px;">
+                    {{items.EventFromDate}}</label>
+                    <label *ngIf="items.EventFromDate!=items.EventToDate" style="color: white; font-size: 13px;">
+                      {{items.EventFromDate}} - {{items.EventToDate}}</label>  
+                 
+                </div>
+              
+              
+                <div class="col-md-3">
+                  <!-- {{items|json}} -->
+                  <a  target="_blank" style="color: white; font-size: 13px;" [href]="items.photoalbumpageurl"><u>{{items.photoalbumpagename}}</u></a>  
+                </div>
+                <div  class="col-md-3">
+                  <a  target="_blank" style="color: white; font-size: 13px;" [href]="items.videoalbumpageurl"><u>{{items.videoalbumpagename}}</u></a>
+  
+                </div>
+              
+            </div>
+          </div>
+        
+        </nb-tab>
+        <nb-tab tabTitle="Gallery">
+          <nb-card size="giant">
+            <div class="grid-container">
+              <div class="grid-view" >
+                <div style="border: 8px solid #ffffff;" class="camera"
+                     *ngFor="let camera of servicelistobj"
+                     [style.background-image]="'url(' +imagelocation+ camera.ImageURL + ')'"
+                     (click)="selectImage(imagelocation+ camera.ImageURL)">
+                  
+                </div>
+              </div>
+          
+            </div>
+          </nb-card>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>

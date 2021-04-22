@@ -1,0 +1,36 @@
+<div class="row">
+<div class="col-md-12">
+  <nb-card padding >
+    <nb-card-header>
+      <span style="color: white;">Today’s Calendar</span>
+    </nb-card-header> 
+     
+     <nb-list>
+      <nb-list-item class="contact" >
+        <!-- <div class="row"> -->
+          
+       <!-- <samp *ngFor="let calList of calobj" class="col-md-12"><b>{{calList.fieldname}} : </b>	{{calList.valuename}}​</samp> -->
+       <div *ngFor="let calList of calobj" class="row">
+         <div class="col-md-4"> <b>{{calList.fieldname}}  </b></div>
+         <div class="col-md-8"> {{calList.valuename}}</div>
+       </div>
+       
+       <!-- <samp class="col-md-12"><b>Ayanam: </b> Uttarayanam</samp>
+       <samp class="col-md-12"><b>Rutuvu:</b>	 Hemanta</samp>
+  
+       <samp class="col-md-12"><b>Masam: </b>	Magha</samp>
+       <samp class="col-md-12"><b>Paksham: </b>Sukla</samp>
+       <samp class="col-md-12"><b>Tithi:</b>	 Poornima</samp>
+  
+       <samp class="col-md-12"><b>Nakshatram:</b>​</samp>
+       <samp class="col-md-12"><b>Varjyam: </b> </samp>
+       <samp class="col-md-12"><b>Durmuhurtam:</b>	 </samp>
+  
+       <samp class="col-md-12"><b>Rahu Kalam: </b>	</samp> -->
+      <!-- </div> -->
+      </nb-list-item>
+    </nb-list>
+   </nb-card>
+  
+</div>
+</div>

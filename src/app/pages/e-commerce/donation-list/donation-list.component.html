@@ -1,0 +1,37 @@
+<nb-card>
+
+  <nb-card-header>
+    <label style="color: white;">My Donation </label>
+  </nb-card-header>
+  <nb-card-body>
+  <nb-card>
+        <table style="width: 100%;">
+          <thead>
+            <tr>
+              <th style="text-align: left; color: white;" >TxnID</th>
+              <th style="text-align: right; color: white;">Amount</th>
+              <th style="color: white;">Currency</th>
+              <th style="color: white;">Date</th>
+              <th style="color: white;">Status</th>
+            </tr>
+            
+
+          </thead>
+          <tbody>
+            <tr (click)="opendetail(pay)" *ngFor="let pay of donationObj">
+              <td   style="padding: 5px; cursor: pointer; border-bottom: 1px solid #ffffff; " >{{pay.txnid}}</td>
+              <td style="padding: 5px; cursor: pointer; text-align: right; border-bottom: 1px solid #ffffff;"> {{pay.payment_amount }}</td>
+              
+              <td style="padding: 5px; cursor: pointer; text-align: center; border-bottom: 1px solid #ffffff;">{{pay.payment_currency}}</td>
+              <td style="padding: 5px; cursor: pointer;  text-align: center; border-bottom: 1px solid #ffffff;"> {{pay.createdtime}}</td>
+              <td style="padding: 5px; cursor: pointer; text-align: center; border-bottom: 1px solid #ffffff;"> {{pay.payment_status}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+        <!-- <button *ngIf='!islogin' nbButton status="warning" type="button" (click)='callDonatemodule(serviceDetail)' class="btn btn-default">Doente As Guest </button>
+        <button *ngIf='!islogin'  nbButton status="warning" type="button" (click)='callDonatemodule(serviceDetail)' class="btn btn-default">Doente As Member</button> -->
+
+    </nb-card>
+  </nb-card-body>
+</nb-card>

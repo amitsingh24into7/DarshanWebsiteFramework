@@ -1,0 +1,21 @@
+.nb-theme-default {
+    nb-tabset {
+        .tab.active {
+            .tab-link{
+                color: white !important;
+            }
+        }
+    }
+}
+a{
+    .tab-link {
+        color: white !important;
+    }
+}
+ol-xl-3.col-md-6.mb-4 {
+    float: left;
+}
+.card{min-height:200px}
+span.tab-text.ng-star-inserted {
+    text-transform: capitalize;
+}

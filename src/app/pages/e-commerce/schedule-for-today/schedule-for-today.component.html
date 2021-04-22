@@ -1,0 +1,53 @@
+
+<nb-flip-card [showToggleButton]="false">
+  <nb-card-front>
+   <nb-card padding size="tiny"> 
+     <nb-card-header>
+       <span>Schedule For Today</span>
+     </nb-card-header>
+     <!-- <ngx-stats-card-front></ngx-stats-card-front>
+     <nb-icon icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></nb-icon> -->
+     <!-- <nb-list>
+  
+       <nb-list-item class="item" *ngFor="let item of eventlistobj;">
+         <span class="col-md-4">{{ item.EventsTitle }}</span>
+         <span class="col-md-4">{{ item.CreatedDate }}</span>
+         <nb-icon style="position: unset; float: right;"  icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView(item)"></nb-icon>
+       </nb-list-item>
+     </nb-list> -->
+
+
+     <nb-list>
+      <nb-list-item  class="contact">
+       
+       
+        <nb-user   name="No Schedule For  Today"  size="large"></nb-user>
+        
+      </nb-list-item>
+       <!-- <nb-list-item class="contact" *ngFor="let item of eventlistobj">
+         
+         <nb-user  [name]="item.EventsTitle"  size="large"></nb-user>
+        <nb-icon style="position: unset; float: right;" pack="eva" class="flip-icon"  icon="chevron-right-outline" pack="eva" (click)="toggleView(item)"></nb-icon>
+       </nb-list-item> -->
+     </nb-list>
+   </nb-card>
+
+
+ </nb-card-front>
+ <!-- <nb-card-back *ngIf="eventDetail">
+   <nb-card style="overflow-x: overlay;" size="tiny">
+     <nb-card-header>
+       <span>Event Detail</span>
+     </nb-card-header>
+     <nb-card-body>
+       <p  *ngIf="eventDetail.EventsTitle" ><b>{{ eventDetail.EventsTitle}}</b></p>
+       <p  *ngIf="eventDetail.EventsShortDesc">{{ eventDetail.EventsShortDesc }}</p>
+      
+       <p  *ngIf="eventDetail.EventsLongDesc">{{ eventDetail.EventsLongDesc }}</p>
+     </nb-card-body>
+       
+     <nb-icon icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></nb-icon>
+   </nb-card>
+ </nb-card-back> -->
+ 
+</nb-flip-card>

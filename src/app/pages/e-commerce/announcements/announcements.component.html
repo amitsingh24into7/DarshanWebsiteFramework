@@ -1,0 +1,59 @@
+<nb-card>
+  <nb-card-header>
+    <label style="color: white;">Announcements</label>
+  </nb-card-header>
+  <nb-card-body>
+  <!-- <nb-card>
+    <label>Annual Seva</label><br/><br/>
+    <p>Sri Datta Sai Temple has been functioning effectively as the spiritual and religious center for the people of San Ramon and nearby cities for the last five years owing to the generous financial contribution and support of the devotees and volunteers.The donations have been coming in sporadically on special occasions and events. This has sometimes led to some budgeting and logistical challenges in running the temple.</p><br/>
+    <p>The Executive Committee kindly requests the devotees to commit to regular yearly or monthly contributions. This will ensure successful planning and execution of events and services at the temple. For 2018,  the following two plans are being offered. With Baba's grace, the Executive Committee hopes more and more devotees will commit and contribute to these Sevas. The devotees' support in this manner is highly appreciated and it will help Sri Datta Sai Temple grow and flourish.</p><br/>
+     <p>Om Sai Ram.</p>
+    </nb-card>
+    <nb-card>
+      <h6>Maha Seva (Yearly Sponsorship)</h6>
+      <label>$101 Per  Month or $1116  One time Payment for one Year</label>
+      <ul>
+        <li>One Satyanarayan Puja on the event of your choice</li>
+        <li>One Archana on your Anniversary or day of your choice</li>
+        <li>One Archana every Thursday in your name</li>
+      </ul>
+      <div class="row">
+  
+        <div class="col-xxl-5">
+          <div class="row">
+            <div class="col-md-4">
+              <button nbButton aria-colspan="4" status="warning">Donate - Maha Seva One Time</button>
+            </div>
+            <div class="col-md-4">
+              <button nbButton status="warning">Donate - Maha Seva Monthly</button>
+            </div>
+            </div>
+            </div>
+      </div>
+      
+    </nb-card> -->
+    <nb-card *ngFor="let item of announcementlist">
+      <h6 style="color: white;">{{item.title}}</h6>
+      <label>{{item.createddate}}</label>
+      <label [innerHTML]="item.description"></label>
+      <!-- <ul>
+        <li>One Satyanarayan Puja on the event of your choice</li>
+        <li>One Archana on your Anniversary or day of your choice</li>
+      </ul> -->
+      <!-- <div class="row">
+  
+        <div class="col-xxl-5">
+          <div class="row">
+            <div class="col-md-4">
+              <button nbButton aria-colspan="4" status="warning">Donate Now</button>
+            </div>
+             <div class="col-md-4">
+              <button nbButton status="warning">Donate - Nithya Seva Monthly</button>
+            </div> 
+            </div>
+            </div>
+      </div> -->
+      
+    </nb-card>
+  </nb-card-body>
+</nb-card>

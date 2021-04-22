@@ -1,0 +1,15 @@
+<section id="main" class="wrapper">
+  <div class="inner">
+    <header class="align-center">
+      <h2 style="font-size: 1.2em;">{{address[0].TempleName}}</h2>
+     
+    </header>
+
+  <!-- Content -->
+    <p style="text-align: justify;" id="content">{{address[0].ShortDesc}}</p>
+    <!-- <p style="text-align: justify;">{{address[0].LongDesc}}</p> -->
+    <div [innerHtml]="address[0].LongDesc"></div>
+      </div>
+   
+
+</section>

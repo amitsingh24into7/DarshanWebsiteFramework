@@ -1,0 +1,286 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12">
+    <nb-card *ngIf="!isDetail">
+      <nb-tabset (changeTab)="toggleViewdef()">
+        <nb-tab  tabTitle="Cultural Events">
+          
+
+<nb-flip-card [showToggleButton]="false" [flipped]="flipped">
+  <nb-card-front>
+   <nb-card padding > 
+     <!--<nb-card-header>
+      <span style="color: white;">Cultural Events</span>
+        
+       <div class="row">
+        <div  class="col-md-9">
+          <span style="color: white;">Event Name</span>
+        </div>
+        <div  class="col-md-3">
+          <span style="color: white;">Date</span>
+        </div>
+       
+      </div> 
+     </nb-card-header>-->
+     <!-- <marquee behavior="scroll" direction="up" onmouseover="this.stop();" onmouseout="this.start();"> -->
+     <nb-card-body>
+       
+         <nb-list  *ngFor="let item of eventlistobj">
+          
+             <nb-list-item  *ngIf="item.EventsTypeTitle!='Religious Activities'"  class="contact">
+              <div class="row">
+                <div  class="col-md-12">
+                  <nb-user style="cursor: pointer; z-index: 2040;" (click)="toggleView(item) ;someEvent.emit('data')" [name]="item.EventsTitle"   size="large"></nb-user>
+                  <div class="row" *ngIf="item.iteminfo" >
+                    <div class="col-md-4" *ngFor="let itemOfTime of item.iteminfo">
+                      
+                      <!-- <label>{{itemOfTime.EventsDate}}</label><br/> -->
+                      <label>{{itemOfTime.EventsDate | date}} {{ itemOfTime.FromTime }} To {{itemOfTime.ToTime}} {{itemOfTime.timzone}}</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div  *ngIf="item.iteminfo" class="col-md-6">
+                  <nb-list>
+                    <nb-list-item  *ngFor="let itemOfTime of item.iteminfo">
+                      
+                      <label>{{itemOfTime.EventsDate}}</label><br/>
+                      <label>{{itemOfTime.FromTime}} To {{itemOfTime.ToTime}} {{itemOfTime.timzone}}</label>
+                    </nb-list-item>
+                  </nb-list>
+                </div> -->
+             </div>
+             
+           
+             <img (click)='callDonatemodule(item)' style="float: right; width: 100px; cursor: pointer;" src="assets/images/donate.png"/>
+             
+            </nb-list-item>
+         </nb-list>
+       
+       
+     </nb-card-body>
+   <!-- </marquee> -->
+   </nb-card>
+
+
+ </nb-card-front>
+ <nb-card-back  *ngIf="eventDetail">
+   <nb-card style="overflow-x: overlay;" >
+     <nb-card-header>
+       <span  (click)="toggleView()"  style="color: white; cursor: pointer;">{{ eventDetail.EventsTitle}}</span>
+     </nb-card-header>
+     <nb-card-body>
+      <img style="width: 100%;" [src]="imageurl+eventDetail.ImageURL"/> 
+      <!-- <p  *ngIf="eventDetail.EventsTitle" ><b>{{ eventDetail.EventsTitle}}</b></p>
+       <p  *ngIf="eventDetail.EventsShortDesc">{{ eventDetail.EventsShortDesc }}</p>
+      
+       <p  *ngIf="eventDetail.EventsLongDesc">{{ eventDetail.EventsLongDesc }}</p> -->
+
+       <div class="row" *ngIf="eventDetail.iteminfo" >
+        <div class="col-md-4" *ngFor="let itemOfTime of eventDetail.iteminfo">
+          
+          <!-- <label>{{itemOfTime.EventsDate}}</label><br/> -->
+          <label>{{itemOfTime.EventsDate | date}} {{ itemOfTime.FromTime }} To {{itemOfTime.ToTime}} {{itemOfTime.timzone}}</label>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+         
+        <nb-card style="float: left; margin-right: 8%;margin-top: 5px;   background-color: #ffffff!important;" class="col-md-5" *ngFor="let itemOfTime of paymentlist_obj; let i = index">
+      
+          <h5 style="text-align: center;">{{templedetail.TempleName}}</h5>
+          <label  style="text-align: center;">{{window_history.EventsTitle}}</label>
+          <label  style="text-align: center;">{{itemOfTime.title}}</label>
+         
+          <label style="text-align: center;">{{itemOfTime.payment_url}} ({{itemOfTime.amount}})</label>
+        
+         <div  id="paypal-button-container_{{i+1}}">
+   
+        </div>
+        
+        </nb-card>
+        </div>
+     </nb-card-body>
+     <div>
+        <button [ngStyle]="{'width':eventDetail.isvolunteering == 'Yes' ? 'calc(50% - 3px)' : '100%' }"   style="float: left;" nbButton status="warning" type="button" (click)='callDonatemodule(eventDetail)' class="btn btn-default">Donate Now </button>
+
+     <button  *ngIf="eventDetail.isvolunteering == 'Yes'"  style="float: right; width: 50%;" nbButton status="warning" type="button" (click)='toggleViewVolunteering(eventDetail)' class="btn btn-default">Volunteering </button>
+     </div>
+    
+     
+     <nb-icon style="cursor: pointer;" icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></nb-icon>
+   </nb-card>
+ </nb-card-back>
+ 
+</nb-flip-card>
+        </nb-tab>
+        <nb-tab tabTitle="Religious Events​">
+          
+
+<nb-flip-card [showToggleButton]="false" [flipped]="flipped">
+  <nb-card-front>
+   <nb-card padding > 
+     <!--<nb-card-header>
+      <span style="color: white;">Cultural Events</span>
+        
+       <div class="row">
+        <div  class="col-md-9">
+          <span style="color: white;">Event Name</span>
+        </div>
+        <div  class="col-md-3">
+          <span style="color: white;">Date</span>
+        </div>
+       
+      </div> 
+     </nb-card-header>-->
+     <!-- <marquee behavior="scroll" direction="up" onmouseover="this.stop();" onmouseout="this.start();"> -->
+     <nb-card-body>
+       
+         <nb-list *ngFor="let item of eventlistobj">
+          
+             <nb-list-item class="contact" *ngIf="item.EventsTypeTitle=='Religious Activities'" >
+              <div class="row">
+                <div  class="col-md-12">
+                  <nb-user style="cursor: pointer; z-index: 2040;" (click)="toggleView(item) ;someEvent.emit('data')" [name]="item.EventsTitle"   size="large"></nb-user>
+                  <div class="row" *ngIf="item.iteminfo" >
+                    <div class="col-md-4" *ngFor="let itemOfTime of item.iteminfo">
+                      
+                      <!-- <label>{{itemOfTime.EventsDate}}</label><br/> -->
+                      <label>{{itemOfTime.EventsDate | date}} {{ itemOfTime.FromTime }} To {{itemOfTime.ToTime}} {{itemOfTime.timzone}}</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div  *ngIf="item.iteminfo" class="col-md-6">
+                  <nb-list>
+                    <nb-list-item  *ngFor="let itemOfTime of item.iteminfo">
+                      
+                      <label>{{itemOfTime.EventsDate}}</label><br/>
+                      <label>{{itemOfTime.FromTime}} To {{itemOfTime.ToTime}} {{itemOfTime.timzone}}</label>
+                    </nb-list-item>
+                  </nb-list>
+                </div> -->
+             </div>
+             
+           
+             <img (click)='callDonatemodule(item)' style="float: right; width: 100px; cursor: pointer;" src="assets/images/donate.png"/>
+             
+            </nb-list-item>
+         </nb-list>
+       
+       
+     </nb-card-body>
+   <!-- </marquee> -->
+   </nb-card>
+
+
+ </nb-card-front>
+ <nb-card-back  *ngIf="eventDetail">
+   <nb-card style="overflow-x: overlay;" >
+     <nb-card-header>
+       <span  (click)="toggleView()"  style="color: white; cursor: pointer;">{{ eventDetail.EventsTitle}}</span>
+     </nb-card-header>
+     <nb-card-body>
+      <img  style="width: 100%;" [src]="imageurl+eventDetail.ImageURL"/> 
+      <!-- <p  *ngIf="eventDetail.EventsTitle" ><b>{{ eventDetail.EventsTitle}}</b></p>
+       <p  *ngIf="eventDetail.EventsShortDesc">{{ eventDetail.EventsShortDesc }}</p>
+      
+       <p  *ngIf="eventDetail.EventsLongDesc">{{ eventDetail.EventsLongDesc }}</p> -->
+      
+       <div class="row" *ngIf="eventDetail.iteminfo" >
+        <div class="col-md-4" *ngFor="let itemOfTime of eventDetail.iteminfo">
+          
+          <!-- <label>{{itemOfTime.EventsDate}}</label><br/> -->
+          <label>{{itemOfTime.EventsDate | date}} {{ itemOfTime.FromTime }} To {{itemOfTime.ToTime}} {{itemOfTime.timzone}}</label>
+        </div>
+      </div>
+
+      
+     </nb-card-body>
+     <div>
+        <button [ngStyle]="{'width':eventDetail.isvolunteering == 'Yes' ? 'calc(50% - 3px)' : '100%' }"   style="float: left;" nbButton status="warning" type="button" (click)='callDonatemodule(eventDetail)' class="btn btn-default">Donate Now </button>
+
+     <button  *ngIf="eventDetail.isvolunteering == 'Yes'"  style="float: right; width: 50%;" nbButton status="warning" type="button" (click)='toggleViewVolunteering(eventDetail)' class="btn btn-default">Volunteering </button>
+     </div>
+    
+     
+     <nb-icon style="cursor: pointer;" icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></nb-icon>
+   </nb-card>
+ </nb-card-back>
+ 
+</nb-flip-card>
+        </nb-tab>
+        
+      </nb-tabset>
+    </nb-card>
+    <nb-card *ngIf="isDetail">
+      
+      <nb-card-body>
+        <img  style="width: 100%;" [src]="imageurl+window_history.ImageURL"/> 
+       
+         <div class="row" >
+          <div class="col-md-12">
+            <label>{{window_history.EventsTitle}}</label>
+           
+          </div>
+          <div class="col-md-12">
+            <div [innerHtml]="window_history.EventsShortDesc"></div>
+           
+          </div>
+          <div class="col-md-12">
+            <div [innerHtml]="window_history.EventsLongDesc"></div>
+           
+          </div>
+          <div class="col-md-12">
+            
+          <nb-card style="float: left; margin-right: 8%;margin-top: 5px;   background-color: #ffffff!important;" class="col-md-5" *ngFor="let itemOfTime of paymentlist_obj; let i = index">
+           <!-- {{itemOfTime|json}} -->
+            <h5 style="text-align: center;">{{templedetail.TempleName}}</h5>
+            <label  style="text-align: center;">{{window_history.EventsTitle}}</label>
+            <label  style="text-align: center;">{{itemOfTime.title}}</label>
+            <!-- <label>{{itemOfTime.EventsDate | date}} {{ itemOfTime.FromTime }} To {{itemOfTime.ToTime}} {{itemOfTime.timzone}}</label> -->
+            <label style="text-align: center;">{{itemOfTime.payment_url}} ({{itemOfTime.amount}})</label>
+           <!-- <div >{{paypalMethod(itemOfTime)}}</div> -->
+           <div  id="paypal-button-container_{{i+1}}">
+     
+          </div>
+           <!-- <div [ngxPaypalSubscription]="itemOfTime.id" [id]="itemOfTime.id"></div> -->
+          </nb-card>
+          </div>
+            <!-- <label>{{itemOfTime.EventsDate}}</label><br/> -->
+            <!-- <ngx-paypal [config]="payPalConfig"></ngx-paypal> -->
+        </div>
+        
+       </nb-card-body>
+      
+    </nb-card>
+  </div>
+</div>
+
+
+
+
+
+<!-- <nb-flip-card [showToggleButton]="false">
+  <nb-card-front>
+   <nb-card padding size="large"> 
+     <nb-card-header>
+       <div class="row">
+        <div  class="col-md-9">
+          <span style="color: white;">Event Name</span>
+        </div>
+        <div  class="col-md-3">
+          <span style="color: white;">Date</span>
+        </div>
+       
+      </div>
+     </nb-card-header>
+   <nb-card-body>
+
+   </nb-card-body> -->
+
+     <!-- <ngx-event-list></ngx-event-list> -->
+   <!-- </nb-card>
+
+
+ </nb-card-front>
+ 
+ 
+</nb-flip-card> -->

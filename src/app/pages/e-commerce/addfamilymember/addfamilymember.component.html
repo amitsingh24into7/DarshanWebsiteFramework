@@ -1,0 +1,130 @@
+<div class="row">
+  <div class="col-md-6">
+ 
+    <nb-card style="overflow-x: overlay;" size="Medium">
+      <nb-card-header>
+        <span *ngIf="!this.isupdate" style="color: white;">Add Family Member</span>
+        <span *ngIf="this.isupdate" style="color: white;">Update Family Member</span>
+        <button (click)="toggleView()" style="float: right;"  nbButton status="warning" type="sybmit"  class="btn btn-default"><nb-icon style="cursor: pointer; " icon="chevron-left-outline" pack="eva" class="flip-icon" ></nb-icon></button>
+      </nb-card-header>
+      <nb-card-body>
+        <form autocomplete="off"  #profileEditForm="ngForm" (ngSubmit)="onSubmit(profileEditForm)">
+          <div class="form-group row">
+            <label for="relation" class="label col-sm-3 col-form-label">Realtionship​</label>
+            <div class="col-sm-9" >
+            
+              <!-- <input [(ngModel)]="userProfile.Nametitle" name="Nametitle" required  class="form-control"    type="text" nbInput fullWidth id="Nametitle" placeholder="Realtionship"> -->
+              <nb-select fullWidth id="relation"  [(ngModel)]="userProfile.relation" name="relation" [(selected)]="selectedrelation">
+                <nb-option *ngFor="let real of relationobj" [value]="real.ConfigVal">{{real.ConfigDisplayVal}}</nb-option>
+              </nb-select >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nametitle" class="label col-sm-3 col-form-label">Title​</label>
+            <div class="col-sm-9" >
+             
+            
+              <nb-select fullWidth id="nametitle"  [(ngModel)]="userProfile.nametitle" name="nametitle" >
+                <nb-option *ngFor="let real of nametitle" [value]="real.ConfigVal">{{real.ConfigDisplayVal}}</nb-option>
+              </nb-select >
+              <!-- <input [(ngModel)]="userProfile.Nametitle" name="Nametitle" required  class="form-control"   type="text" nbInput fullWidth id="Nametitle" placeholder="Title"> -->
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputName" class="label col-sm-3 col-form-label">Full Name​</label>
+            <div class="col-sm-9" >
+            
+              <input [(ngModel)]="userProfile.UserName" name="inputName" required  class="form-control"   type="text" nbInput fullWidth id="inputName" placeholder="Full Name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="gender" class="label col-sm-3 col-form-label">Gender</label>
+            <div class="col-sm-9" >
+             
+              <nb-select fullWidth id="gender"  [(ngModel)]="userProfile.gender" name="gender" >
+                <nb-option  value="Female">Female</nb-option>
+                <nb-option  value="Male">Male</nb-option>
+              </nb-select >
+              <!-- <input [(ngModel)]="userProfile.Nametitle" name="Nametitle" required  class="form-control"   type="text" nbInput fullWidth id="Nametitle" placeholder="Title"> -->
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-3 col-form-label">Email​</label>
+            <div class="col-sm-9">
+              <input autocomplete="off"  name="inputEmail"  [(ngModel)]="userProfile.EmailAddress" class="form-control" required  type="email" nbInput fullWidth id="inputEmail1" placeholder="Email">
+             
+          
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPhone" class="label col-sm-3 col-form-label">Phone</label>
+            <div class="col-sm-9" >
+              <input  name="inputPhone" [(ngModel)]="userProfile.ContactNumber"  required  class="form-control" type="text" nbInput fullWidth id="inputPhone" placeholder="Phone">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputnakshtra" class="label col-sm-3 col-form-label">Nakshatra​</label>
+            <div class="col-sm-9" >
+              <input  name="inputnakshtra" [(ngModel)]="userProfile.nakshtra" required  class="form-control" type="text" nbInput fullWidth id="inputnakshtra" placeholder="Nakshatra​ ">
+             
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputnakshtra1" class="label col-sm-3 col-form-label">Rashi​</label>
+            <div class="col-sm-9" >
+              <input  name="inputnakshtra1" [(ngModel)]="userProfile.rashi" required  class="form-control"  type="text" nbInput fullWidth id="inputnakshtra1" placeholder="Rashi​ ">
+              
+            </div>
+          </div>
+        
+          <div class="form-group row">
+            <label for="inputnakshtra2" class="label col-sm-3 col-form-label">Gotre​</label>
+            <div class="col-sm-9" >
+              <input  name="inputnakshtra2" required [(ngModel)]="userProfile.gotra" class="form-control"  type="text" nbInput fullWidth id="inputnakshtra2" placeholder="Gotre​ Name">
+            
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputBirth" class="label col-sm-3 col-form-label">Birth Date​</label>
+            <div class="col-sm-9" >
+              <input  name="inputBirth" [(ngModel)]="userProfile.birthdate" [nbDatepicker]="datepickerBirth"   class="form-control" type="text" nbInput fullWidth id="inputBirth" placeholder="Birth Date">
+              <nb-datepicker format="yyyy-MM-dd" #datepickerBirth></nb-datepicker>
+            
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputMarrage" class="label col-sm-3 col-form-label">Marrage Date</label>
+            <div class="col-sm-9" >
+              <input  autocomplete="off"  name="inputMarrage" [(ngModel)]="userProfile.marriagedate" [nbDatepicker]="datepicker"  class="form-control" type="text" nbInput fullWidth id="inputMarrage" placeholder="Marrage Date">
+       <nb-datepicker format="yyyy-MM-dd" #datepicker></nb-datepicker>
+
+            </div>
+          </div> 
+
+          <div class="form-group row">
+            <label for="deathdate" class="label col-sm-3 col-form-label">Death Date</label>
+            <div class="col-sm-9" >
+              <input  autocomplete="off"  name="deathdate" [(ngModel)]="userProfile.deathdate" [nbDatepicker]="deathdatepicker"  class="form-control" type="text" nbInput fullWidth id="deathdate" placeholder="Marrage Date">
+       <nb-datepicker format="yyyy-MM-dd" #deathdatepicker></nb-datepicker>
+
+            </div>
+          </div> 
+          
+        </form>
+
+
+      </nb-card-body>
+     
+      <nb-card-footer>
+       
+        <button  style="width: 100%;" nbButton status="warning" type="button" (click)="profileEditForm.ngSubmit.emit();" class="btn btn-default">Save</button>
+   
+      </nb-card-footer>
+    </nb-card>
+  
+  </div>
+  
+
+</div>
+

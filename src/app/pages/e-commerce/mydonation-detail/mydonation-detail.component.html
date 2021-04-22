@@ -1,0 +1,37 @@
+<nb-card>
+  <nb-card-header>
+    <label style="color: white;">My Donation Detail</label>
+  </nb-card-header>
+  <nb-card-body>
+      <!-- <button  icon="arrow-ios-back-outline"></button> -->
+      <button (click)="backEvent()" nbButton aria-colspan="4" status="warning">
+        <nb-icon icon="arrow-ios-back-outline"></nb-icon>
+      </button>
+        <table style="width: 100%;">
+          <thead>
+            <tr>
+              <th  style="color: white;">TxnID</th>
+              <th style="color: white;">Amount</th>
+              <th style="color: white;">Temple Name</th>
+              <th style="color: white;" *ngIf='donationdataobj.serviceName'>Service Name</th>
+              <th style="color: white;"  *ngIf="donationdataobj.eventName">EventName Name</th>
+              <th style="color: white;">Date</th>
+              <th style="color: white;">Status</th>
+            </tr>
+            
+
+          </thead>
+          <tbody style="border-top: 1px solid #ffffff;">
+            <tr>
+              <td>{{donationdataobj.txnid}}</td>
+              <td>{{donationdataobj.payment_amount}} {{donationdataobj.payment_currency}}</td>
+              <td>{{donationdataobj.templeName}}</td>
+              <td *ngIf='donationdataobj.serviceName' >{{donationdataobj.serviceName}}</td>
+              <td *ngIf="donationdataobj.eventName">{{donationdataobj.eventName}}</td>
+              <td>{{donationdataobj.createdtime}}</td>
+              <td>{{donationdataobj.state}}</td>
+            </tr>
+          </tbody>
+        </table>
+  </nb-card-body>
+</nb-card>

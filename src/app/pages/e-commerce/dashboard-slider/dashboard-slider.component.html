@@ -1,0 +1,46 @@
+<ngb-carousel
+[showNavigationArrows]="true" 
+[showNavigationIndicators]="true"
+interval="2000"
+[keyboard]="true"
+[pauseOnHover]="true"
+[wrap]="true"
+[activeId]="'secondSlide'"
+>
+  <ng-template ngbSlide *ngFor="let iteam of sliderlistobj let i=index" id="firstSlide{{i}}">
+    <div class="picsum-img-wrapper">
+      <img style="height: 200px;;" [src]="imageurl+iteam.ImageURL">
+    </div>
+    <div (click)="openDetailFunction(iteam)" class="carousel-caption">
+      <h3>{{iteam.EventsTitle}}</h3>
+      <p>{{iteam.EventsShortDesc}}</p>
+    </div>
+  </ng-template>
+  <!-- <ng-template ngbSlide id="thirdSlide">
+    <div class="picsum-img-wrapper">
+      <img style="height: 200px;" src="assets/images/bg2.jpg" alt="Angular Carousel 2">
+    </div>
+    <div class="carousel-caption">
+      <h3>Sri Dattasai Temple & Cultural Center​San Ramon, CA​</h3>
+      <p>|| Anantakoti Brahmanda Naayaka, Rajadhi Raja, Yogi Raja, ​Parabrahmasri Satchidananda Swaroop Sainath Maharaj ki Jai ||​</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide id="fourthSlide">
+    <div class="picsum-img-wrapper">
+      <img style="height: 200px;" src="assets/images/bg3.jpg" alt="Angular Carousel 2">
+    </div>
+    <div class="carousel-caption">
+      <h3>Sri Dattasai Temple & Cultural Center​San Ramon, CA​</h3>
+      <p>|| Anantakoti Brahmanda Naayaka, Rajadhi Raja, Yogi Raja, ​Parabrahmasri Satchidananda Swaroop Sainath Maharaj ki Jai ||​</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide id="fivethSlide">
+    <div class="picsum-img-wrapper">
+      <img style="height: 200px;" src="assets/images/bg4.png" alt="Angular Carousel 2">
+    </div>
+    <div class="carousel-caption">
+      <h3>Sri Dattasai Temple & Cultural Center​San Ramon, CA​</h3>
+      <p>|| Anantakoti Brahmanda Naayaka, Rajadhi Raja, Yogi Raja, ​Parabrahmasri Satchidananda Swaroop Sainath Maharaj ki Jai ||​</p>
+    </div>
+  </ng-template> -->
+</ngb-carousel>

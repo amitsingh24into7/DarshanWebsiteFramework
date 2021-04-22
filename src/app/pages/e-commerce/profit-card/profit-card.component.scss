@@ -1,0 +1,56 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  .flip-icon {
+    position: absolute;
+    right: 0.625rem;
+    top: 1rem;
+    @include nb-rtl(right, auto);
+    @include nb-rtl(left, 0.625rem);
+    cursor: pointer;
+  }
+
+  ::ng-deep .flipped {
+    .back-container {
+      .flip-icon {
+        transform: scaleX(-1);
+      }
+    }
+
+    .front-container {
+      .flip-icon {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@include nb-install-component() {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .title {
+    padding-left: 0.5rem;
+  }
+
+  nb-card-header {
+    margin-bottom: -1px;
+  }
+
+  nb-card-body {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  ngx-stats-bar-animation-chart {
+    position: relative;
+
+    ::ng-deep .echart {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<nb-flip-card [showToggleButton]="false" [flipped]="flipped">
+   <nb-card-front>
+    <nb-card padding > 
+      <!-- <nb-card-header>
+        <span>Upcoming Events</span>
+      </nb-card-header> -->
+      <!-- <marquee behavior="scroll" direction="up" onmouseover="this.stop();" onmouseout="this.start();"> -->
+      <nb-card-body>
+        
+          <nb-list>
+              <nb-list-item class="contact" *ngFor="let item of eventlistobj">
+              <!-- <nb-user [picture]="c.user.picture" [name]="item.EventsTitle" [title]="item.EventsTitle" size="large"></nb-user> when image is com-->
+              <nb-user style="cursor: pointer;" (click)="toggleView(item) ;someEvent.emit('data')" [name]="item.EventsTitle" [picture]="imageurl+item.ImageURL"  size="large"></nb-user>
+              <!-- <nb-icon style="position: unset; float: right;"  icon="chevron-right-outline" ></nb-icon> -->
+              <!-- <button   nbButton status="warning" type="button" (click)='callDonatemodule(item)' class="btn btn-default">Donate Now</button> -->
+              <img (click)='callDonatemodule(item)' style="float: right; width: 100px; cursor: pointer;" src="assets/images/donate.png"/>
+              <!-- <nb-icon style="position: unset; float: right;" pack="eva" class="flip-icon"  icon="chevron-right-outline" pack="eva" (click)="toggleView(item)"></nb-icon> -->
+            </nb-list-item>
+          </nb-list>
+        
+        
+      </nb-card-body>
+    <!-- </marquee> -->
+    </nb-card>
+
+
+  </nb-card-front>
+  <nb-card-back  *ngIf="eventDetail">
+    <nb-card style="overflow-x: overlay;" >
+      <!-- <nb-card-header>
+        <span>Event Detail</span>
+      </nb-card-header> -->
+      <nb-card-body>
+        <img  style="width: 100%;" [src]="imageurl+eventDetail.ImageURL"/> 
+        <p  *ngIf="eventDetail.EventsTitle" ><b>{{ eventDetail.EventsTitle}}</b></p>
+        <p  *ngIf="eventDetail.EventsShortDesc">{{ eventDetail.EventsShortDesc }}</p>
+       
+        <p  *ngIf="eventDetail.EventsLongDesc">{{ eventDetail.EventsLongDesc }}</p>
+      </nb-card-body>
+      <button  style="float: left;" nbButton status="warning" type="button" (click)='callDonatemodule(eventDetail)' class="btn btn-default">Donate Now</button>
+      
+      <nb-icon style="cursor: pointer;" icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></nb-icon>
+    </nb-card>
+  </nb-card-back>
+  
+</nb-flip-card>

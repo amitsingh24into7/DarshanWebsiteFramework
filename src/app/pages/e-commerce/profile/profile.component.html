@@ -1,0 +1,340 @@
+<div class="row">
+  <div class="col-md-6">
+    <!-- <nb-card>
+    
+      
+      <nb-card-body>
+        <div class="row">
+          <div class="col-md-12" >
+            <label><b>Name:-</b>{{userProfile.UserName}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Email:-</b>{{userProfile.EmailAddress}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Phone:-</b>{{userProfile.ContactNumber}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Nakshatra:-</b>{{userProfile.nakshtra}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Rashi:-</b>{{userProfile.rashi}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Gotre:-</b>{{userProfile.gotra}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Birth Date:-</b>{{userProfile.birthdate}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Marrage Date:-</b>{{userProfile.marriagedate}} </label>
+          </div>
+         
+        </div>
+      </nb-card-body>
+    </nb-card> -->
+
+    <nb-flip-card [showToggleButton]="false"  [flipped]="flipped">
+      <nb-card-front>
+       <nb-card padding   size="Medium"> 
+         <nb-card-header>
+           <span>My Profile</span>
+         </nb-card-header>
+          
+      <nb-card-body>
+        <div class="row">
+          <div class="col-md-12" >
+            <label><b>Name:-</b>{{userProfile.UserName}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Email:-</b>{{userProfile.EmailAddress}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Phone:-</b>{{userProfile.ContactNumber}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Nakshatra:-</b>{{userProfile.nakshtra}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Rashi:-</b>{{userProfile.rashi}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Gotre:-</b>{{userProfile.gotra}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Birth Date:-</b>{{userProfile.birthdate}} </label>
+          </div>
+          <div class="col-md-12" >
+            <label><b>Marrage Date:-</b>{{userProfile.marriagedate}} </label>
+          </div>
+         
+        </div>
+      </nb-card-body>
+        <nb-card-footer>
+          <button  style="width: 100%;" nbButton status="warning" type="button" (click)="toggleView(userProfile) ;" class="btn btn-default">Update Profile</button>
+     
+        </nb-card-footer>
+       </nb-card>
+    
+    
+     </nb-card-front>
+    
+      <nb-card-back >
+        <nb-card style="overflow-x: overlay;" size="Medium">
+          <nb-card-header>
+            <span>Update Profile</span>
+            <button (click)="toggleView('')" style="float: right;"  nbButton status="warning" type="sybmit"  class="btn btn-default"><nb-icon style="cursor: pointer; " icon="chevron-left-outline" pack="eva" class="flip-icon" ></nb-icon></button>
+          </nb-card-header>
+          <nb-card-body>
+            <form  #profileEditForm="ngForm" (ngSubmit)="onSubmit(profileEditForm)">
+              <div class="form-group row">
+                <label for="inputName" class="label col-sm-3 col-form-label">Full Name​</label>
+                <div class="col-sm-9" >
+                
+                  <input [(ngModel)]="userProfile.UserName" name="inputName" required  class="form-control"   type="text" nbInput fullWidth id="inputName" placeholder="Full Name">
+                  
+                
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail1" class="label col-sm-3 col-form-label">Email​</label>
+                <div class="col-sm-9">
+                  <input  name="inputEmail" readonly [(ngModel)]="userProfile.EmailAddress" class="form-control" required  type="email" nbInput fullWidth id="inputEmail1" placeholder="Email">
+                 
+              
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPhone" class="label col-sm-3 col-form-label">Phone</label>
+                <div class="col-sm-9" >
+                  <input  name="inputPhone" [(ngModel)]="userProfile.ContactNumber"  required  class="form-control" type="text" nbInput fullWidth id="inputPhone" placeholder="Phone ">
+                  
+                
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputnakshtra" class="label col-sm-3 col-form-label">Nakshatra​</label>
+                <div class="col-sm-9" >
+                  <input  name="inputnakshtra" [(ngModel)]="userProfile.nakshtra" required  class="form-control" type="text" nbInput fullWidth id="inputnakshtra" placeholder="Nakshatra​ ">
+                 
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputnakshtra1" class="label col-sm-3 col-form-label">Rashi​</label>
+                <div class="col-sm-9" >
+                  <input  name="inputnakshtra1" [(ngModel)]="userProfile.rashi" required  class="form-control"  type="text" nbInput fullWidth id="inputnakshtra1" placeholder="Rashi​ ">
+                  
+                </div>
+              </div>
+            
+              <div class="form-group row">
+                <label for="inputnakshtra2" class="label col-sm-3 col-form-label">Gotre​</label>
+                <div class="col-sm-9" >
+                  <input  name="inputnakshtra2" required [(ngModel)]="userProfile.gotra" class="form-control"  type="text" nbInput fullWidth id="inputnakshtra2" placeholder="Gotre​ ">
+                
+                </div>
+              </div>
+
+              
+              <div class="form-group row">
+                <label for="inputBirth" class="label col-sm-3 col-form-label">Birth Date​</label>
+                <div class="col-sm-9" >
+                  <input  name="inputBirth" [(ngModel)]="userProfile.birthdate" [nbDatepicker]="datepickerBirth"   class="form-control" type="text" nbInput fullWidth id="inputBirth" placeholder="Birth Date">
+                  <nb-datepicker format="yyyy-MM-dd" #datepickerBirth></nb-datepicker>
+                
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputMarrage" class="label col-sm-3 col-form-label">Marrage Date</label>
+                <div class="col-sm-9" >
+                  <input    name="inputMarrage" [(ngModel)]="userProfile.marriagedate" [nbDatepicker]="datepicker"  class="form-control" type="text" nbInput fullWidth id="inputMarrage" placeholder="Marrage Date">
+           <nb-datepicker format="yyyy-MM-dd" #datepicker></nb-datepicker>
+
+                </div>
+              </div> 
+              
+            </form>
+
+
+
+
+          <!-- <form [formGroup]="updateProfileForm" #documentEditForm="ngForm" (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                <label for="inputName" class="label col-sm-3 col-form-label">Full Name​</label>
+                <div class="col-sm-9" >
+                
+                  <input  formControlName="inputName" required  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputName.errors }" name="inputName"  type="text" nbInput fullWidth id="inputName" placeholder="Full Name">
+                  <div *ngIf="submitted && f.inputName.errors" class="invalid-feedback">
+                    <div style="color: darkorange;" *ngIf="f.inputName.errors.required">Full Name is required</div>
+                </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail1" class="label col-sm-3 col-form-label">Email​</label>
+                <div class="col-sm-9">
+                  <input formControlName="inputEmail" readonly [value]="userProfile.EmailAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputEmail.errors }" required  type="email" nbInput fullWidth id="inputEmail1" placeholder="Email">
+                  <div *ngIf="submitted && f.inputEmail.errors" class="invalid-feedback">
+                    <div style="color: darkorange;" *ngIf="f.inputEmail.errors.required">Email​ is required</div>
+                </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPhone" class="label col-sm-3 col-form-label">Phone</label>
+                <div class="col-sm-9" >
+                  <input formControlName="inputPhone" [value]="userProfile.ContactNumber"  required  class="form-control" [ngClass]="[{ 'is-invalid': submitted && f.inputPhone.errors }]" type="text" nbInput fullWidth id="inputPhone" placeholder="Phone Name">
+                  <div *ngIf="submitted && f.inputPhone.errors" class="invalid-feedback">
+                    <div style="color: darkorange;" *ngIf="f.inputPhone.errors.required">Phone is required</div>
+                </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputnakshtra" class="label col-sm-3 col-form-label">Nakshatra​</label>
+                <div class="col-sm-9" >
+                  <input formControlName="inputnakshtra" [value]="userProfile.nakshtra" required  class="form-control" [ngClass]="[{ 'is-invalid': submitted && f.inputnakshtra.errors }]" type="text" nbInput fullWidth id="inputnakshtra" placeholder="Nakshatra​ Name">
+                  <div *ngIf="submitted && f.inputnakshtra.errors" class="invalid-feedback">
+                    <div style="color: darkorange;" *ngIf="f.inputnakshtra.errors.required">Nakshatra​ is required</div>
+                </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputnakshtra1" class="label col-sm-3 col-form-label">Rashi​</label>
+                <div class="col-sm-9" >
+                  <input formControlName="inputnakshtra1" [value]="userProfile.rashi" required  class="form-control" [ngClass]="[{ 'is-invalid': submitted && f.inputnakshtra1.errors }]" type="text" nbInput fullWidth id="inputnakshtra1" placeholder="Nakshatra​ Name">
+                  <div *ngIf="submitted && f.inputnakshtra1.errors" class="invalid-feedback">
+                    <div style="color: darkorange;" *ngIf="f.inputnakshtra1.errors.required">Rashi​ is required</div>
+                </div>
+                </div>
+              </div>
+            
+              <div class="form-group row">
+                <label for="inputnakshtra2" class="label col-sm-3 col-form-label">Gotre​</label>
+                <div class="col-sm-9" >
+                  <input formControlName="inputnakshtra2" required [value]="userProfile.gotra" class="form-control" [ngClass]="[{ 'is-invalid': submitted && f.inputnakshtra2.errors }]" type="text" nbInput fullWidth id="inputnakshtra2" placeholder="Gotre​ Name">
+                  <div *ngIf="submitted && f.inputnakshtra2.errors" class="invalid-feedback">
+                    <div style="color: darkorange;" *ngIf="f.inputnakshtra2.errors.required">Gotre​ is required</div>
+                </div>
+                </div>
+              </div>
+
+              
+              <div class="form-group row">
+                <label for="inputBirth" class="label col-sm-3 col-form-label">Birth Date​</label>
+                <div class="col-sm-9" >
+                  <input formControlName="inputBirth" [value]="userProfile.birthdate" [nbDatepicker]="datepickerBirth"   class="form-control" type="text" nbInput fullWidth id="inputBirth" placeholder="Birth Date">
+                  <nb-datepicker format="yyyy-MM-dd" #datepickerBirth></nb-datepicker>
+                
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputMarrage" class="label col-sm-3 col-form-label">Marrage Date</label>
+                <div class="col-sm-9" >
+                  <input formControlName="inputMarrage" [value]="userProfile.marriagedate" [nbDatepicker]="datepicker"  class="form-control" type="text" nbInput fullWidth id="inputMarrage" placeholder="Marrage Date">
+           <nb-datepicker format="yyyy-MM-dd" #datepicker></nb-datepicker>
+
+                </div>
+              </div> 
+              
+            </form> -->
+          </nb-card-body>
+         
+          <nb-card-footer>
+           
+            <button  style="width: 100%;" nbButton status="warning" type="button" (click)="profileEditForm.ngSubmit.emit();" class="btn btn-default">Save Profile</button>
+       
+          </nb-card-footer>
+        </nb-card>
+      </nb-card-back> 
+    
+     
+    </nb-flip-card>
+  </div>
+  <div class="col-md-6">
+    <nb-flip-card [showToggleButton]="false"  [flipped]="Familyflipped">
+      <nb-card-front>
+       <nb-card padding   size="Medium"> 
+         <nb-card-header>
+           <span>My family Mamber</span>
+         </nb-card-header>
+         <nb-card-body>
+           
+             <nb-list>
+                 <nb-list-item class="contact" *ngFor="let item of familyListObj">
+                  <div style="width: 100%;" class="row">
+                    <div  class="col-md-9">
+                      <nb-user style="cursor: pointer;" (click)="toggleViewfamliy(item) ;" [name]="item.name"  size="large"></nb-user>
+                    </div>
+                    <div  class="col-md-3">
+                      <button  style="float: left;margin-right: 3px;" nbButton status="warning" type="button" (click)='callEditFunction(item)' class="btn btn-default">Edit</button>
+                    </div>
+                  </div>
+                
+                
+                 </nb-list-item>
+             </nb-list>
+           
+           
+         </nb-card-body>
+        <nb-card-footer>
+          <button style="float: left;margin-right: 3px;" nbButton status="warning" type="button" (click)='openModule()' class="btn btn-default">
+           Add family Mamber
+          </button>
+        </nb-card-footer>
+       </nb-card>
+    
+    
+     </nb-card-front>
+     
+    
+    
+      <nb-card-back >
+        <nb-card style="overflow-x: overlay;" size="Medium">
+          <nb-card-header>
+            <span>My family Detail</span>
+          </nb-card-header>
+          <nb-card-body *ngIf="famliydetail">
+            <div class="row">
+              <div class="col-md-12" >
+                <label><b>{{famliydetail.realtionship}} Name:-</b>{{famliydetail.nametitle}} {{famliydetail.name}} </label>
+              </div>
+              <div class="col-md-12" >
+                <label><b>Email:-</b>{{famliydetail.email}} </label>
+              </div>
+              <div class="col-md-12" >
+                <label><b>Phone:-</b>{{famliydetail.mobile}} </label>
+              </div>
+              <div class="col-md-12" >
+                <label><b>Nakshatra:-</b>{{famliydetail.nakshatra}} </label>
+              </div>
+              <div class="col-md-12" >
+                <label><b>Rashi:-</b>{{famliydetail.rashi}} </label>
+              </div>
+              <div class="col-md-12" >
+                <label><b>Gotre:-</b>{{famliydetail.gotra}} </label>
+              </div>
+              <div class="col-md-12" >
+                <label><b>Birth Date:-</b>{{famliydetail.deathdate}} </label>
+              </div>
+              <div class="col-md-12" >
+                <label><b>Marrage Date:-</b>{{famliydetail.marriagedate}} </label>
+              </div>
+             
+            </div>
+          </nb-card-body>
+          <nb-card-footer>
+            <button style="float: left;margin-right: 3px;" nbButton status="warning" type="button" (click)='toggleViewfamliy("")' class="btn btn-default">
+              <nb-icon icon="chevron-left-outline" pack="eva" class="flip-icon" ></nb-icon>
+            </button>
+          </nb-card-footer>
+          
+         
+        </nb-card>
+      </nb-card-back> 
+    
+     
+    </nb-flip-card>
+ </div>
+
+</div>
+

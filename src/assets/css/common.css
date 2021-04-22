@@ -1,0 +1,123 @@
+    nb-layout-header,nb-sidebar,nb-card,.nb-theme-default nb-layout .layout .layout-container .content nb-layout-footer nav{
+        /* header footer and left side menu bg color */
+        background: #b7410e;
+       
+    }
+    nb-card{
+        /* Card bg color =========*/
+        background: #b7410e !important;
+       
+    }
+  
+    nb-layout-column{
+        /* Body bg color ============*/
+        background: #c14610ed;
+       
+    }
+    nb-sidebar.menu-sidebar.left.compacted .main-container-fixed .scrollable label {
+        display: none;
+    }
+    .carousel-indicators {
+   
+        bottom:unset !important;
+        bottom:-39px !important;
+    
+    }
+    
+    .carousel-indicators li {
+            background-color: black !important;
+        }
+        .nb-theme-default nb-layout .layout .layout-container nb-sidebar.fixed, .nb-theme-default nb-layout .layout .layout-container nb-sidebar .main-container-fixed {
+            top: 6.80rem!important;
+        }
+        nb-layout-header.fixed nav {
+            height: 7.75rem !important;
+        }
+    nb-layout-footer nav.fixed {
+        padding: 0px !important;
+      }
+    nb-layout-header.tophead  nav
+       {
+          padding: 9px !important;
+          height: auto !important;
+        
+      }
+      ngx-cookies-model {
+        position: absolute!important;
+        width: 100%!important;
+        left: 0!important;
+        bottom: 0!important;
+    }
+      .nb-theme-default nb-layout-header.fixed ~ .layout-container{
+        padding-top: 9.00rem !important;
+      }
+    
+      .nb-theme-default nb-tabset .tab.active .tab-link {
+        background-color: transparent;
+        color: #ffffff !important;
+        text-transform: capitalize !important;
+    }
+    .nb-theme-default nb-tabset .tab-link {
+        color: white !important;
+        text-transform: capitalize !important;
+    }
+
+    /* md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-barr{
+        color: rgb(255,82,82) !important;
+        background: rgb(255,82,82) !important;
+    } */
+    .nb-theme-default nb-layout ::-webkit-scrollbar-thumb{
+        background:#95979a ;
+    }
+    nb-sidebar.menu-sidebar.left{
+        /* background-image: url('assets/images/gridbg-left.gif'); */
+        background-repeat: REPEAT-Y;
+        background-position: right;
+    }
+    /*nb-layout-column{
+        background-image: url('assets/images/gridbg-top.gif');
+        background-repeat: repeat-x;
+        background-position: top;
+    }*/
+    .nb-theme-default nb-menu .menu-item a:hover{
+        background-color: #ffc94d !important;
+    }
+    .nb-theme-default nb-menu .menu-item a{
+        /* background-image: url(assets/images/menu.gif); */
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: 6px;
+        background-size: 224px;
+        text-align: center;
+        background-clip: content-box;
+        padding: 5px 10px;
+        background-color: #ffc94d;
+    }
+    .nb-theme-default nb-menu .menu-item a.active{
+        color:black;
+        /* background-image: url(assets/images/menu.gif); */
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: -31px;
+        background-size: 224px;
+        text-align: center;
+        background-clip: content-box;
+        padding: 5px 10px;
+        background-color: #ff854d;
+    }
+    .nb-theme-default nb-menu .menu-item:first-child {
+        border-top: none;
+    }
+    .nb-theme-default nb-menu .menu-item {
+        border-bottom: none;
+    }
+    .nb-theme-default nb-sidebar.expanded nb-menu > .menu-items > .menu-item > a nb-icon,.nb-theme-default nb-sidebar.menu-sidebar.left nb-menu > .menu-items > .menu-item > a nb-icon{
+                display: none;
+    }
+    .nb-theme-default nb-sidebar.compacted nb-menu > .menu-items > .menu-item > a nb-icon{
+        display: block !important;
+        color: black;
+    }
+    .nb-theme-default nb-sidebar.compacted nb-menu > .menu-items > .menu-item > a{
+        background-image: none;
+    }

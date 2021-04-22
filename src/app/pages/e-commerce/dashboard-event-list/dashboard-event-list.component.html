@@ -1,0 +1,123 @@
+
+<!-- <nb-flip-card [showToggleButton]="false" [flipped]="flipped">
+  <nb-card-front>
+   <nb-card size="tiny" padding > 
+     <nb-card-header>
+      <span style="color: white;">Upcoming Events</span>
+        
+    
+     </nb-card-header>
+    
+     <nb-card-body>
+       
+         <nb-list>
+          
+             <nb-list-item class="contact" style="padding:10px 0px" *ngFor="let item of eventlistobj">
+              <div class="row">
+                <div  class="col-md-12">
+                  <nb-user style="cursor: pointer; z-index: 2040;" (click)="toggleView(item) ;someEvent.emit('data')" [name]="item.EventsTitle"  size="large"></nb-user>
+                  <div class="row" *ngIf="item.iteminfo" >
+                    <div class="col-md-12" *ngFor="let itemOfTime of item.iteminfo">
+                      <label>{{itemOfTime.EventsDate | date}} {{ itemOfTime.FromTime }} To {{itemOfTime.ToTime}} {{itemOfTime.timzone}}</label>
+                    </div>
+                    <div class="col-md-12">
+                      <img (click)='callDonatemodule(item)' style="float: right; width: 100px; cursor: pointer;" src="assets/images/donate.png"/>
+                    </div>
+                  </div>
+                </div>
+                
+             </div>
+             
+           
+            
+             
+            </nb-list-item>
+         </nb-list>
+       
+       
+     </nb-card-body>
+   </nb-card>
+
+
+ </nb-card-front>
+ <nb-card-back  *ngIf="eventDetail">
+   <nb-card size="tiny" style="overflow-x: overlay;" >
+     <nb-card-header>
+       <span  (click)="toggleView()"  style="color: white; cursor: pointer;">{{ eventDetail.EventsTitle}}</span>
+     </nb-card-header>
+     <nb-card-body>
+     
+       <div class="row" *ngIf="eventDetail.iteminfo" >
+        <div class="col-md-12" *ngFor="let itemOfTime of eventDetail.iteminfo">
+          
+          <label>{{itemOfTime.EventsDate | date}} {{ itemOfTime.FromTime }} To {{itemOfTime.ToTime}} {{itemOfTime.timzone}}</label>
+        </div>
+      </div>
+
+
+     </nb-card-body>
+     <button  style="float: left;" nbButton status="warning" type="button" (click)='callDonatemodule(eventDetail)' class="btn btn-default">Donate Now</button>
+     
+     <nb-icon style="cursor: pointer;" icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></nb-icon>
+   </nb-card>
+ </nb-card-back>
+ 
+</nb-flip-card> -->
+
+
+
+
+<nb-flip-card [showToggleButton]="false"  [flipped]="flipped">
+  <nb-card-front>
+   <nb-card padding   size="tiny"> 
+     <nb-card-header>
+       <span>Upcoming Events</span>
+     </nb-card-header>
+     <nb-card-body>
+       
+         <nb-list>
+             <nb-list-item class="contact" *ngFor="let item of eventlistobj">
+              <div style="width: 100%;" class="row">
+                <div style="margin-bottom: 5px;" class="col-md-8">
+                  <nb-user style="cursor: pointer;" (click)="toggleView(item) ;someEvent.emit('data')" [name]="item.EventsTitle"  size="large"></nb-user>
+                </div>
+                <!-- <div style="margin-bottom: 5px;" class="col-md-4">
+                  <img (click)='callDonatemodule(item)' style="float: right; width: 100%; cursor: pointer;" src="assets/images/donate.png"/>
+                </div> -->
+                </div>
+            
+            
+             </nb-list-item>
+         </nb-list>
+       
+       
+     </nb-card-body>
+   </nb-card>
+
+
+ </nb-card-front>
+ 
+
+
+  <nb-card-back *ngIf="eventDetail">
+    <nb-card style="overflow-x: overlay;" size="tiny">
+      <nb-card-header>
+        <span>Event Detail</span>
+      </nb-card-header>
+      <nb-card-body>
+        <p  *ngIf="eventDetail.EventsTitle" ><b>{{ eventDetail.EventsTitle}}</b></p>
+        <p  *ngIf="eventDetail.EventsShortDesc">{{ eventDetail.EventsShortDesc }}</p>
+       
+        <p  *ngIf="eventDetail.EventsLongDesc">{{ eventDetail.EventsLongDesc }}</p>
+      </nb-card-body>
+      <diV>
+        <!-- <button [ngStyle]="{'width':eventDetail.isvolunteering == 'Yes' ? 'calc(50% - 3px)' : '100%' }" style="float: left;margin-right: 3px;" nbButton status="warning" type="button" (click)='callDonatemodule(eventDetail)' class="btn btn-default">Donate Now</button> -->
+        <button [ngStyle]="{'width':eventDetail.isvolunteering == 'Yes' ? 'calc(50% - 3px)' : '100%' }" style="float: left;margin-right: 3px;" nbButton status="warning" type="button" (click)='callDonatemodule(eventDetail)' class="btn btn-default">More Details</button>
+      <button   *ngIf="eventDetail.isvolunteering == 'Yes'"  style="float: right; width: 50%;" nbButton status="warning" type="button" (click)='toggleViewVolunteering(eventDetail)' class="btn btn-default">Volunteering </button>
+      </diV>
+      <nb-icon icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></nb-icon>
+    </nb-card>
+  </nb-card-back> 
+
+ 
+</nb-flip-card>

@@ -1,0 +1,194 @@
+<div class="row">
+  <nb-card  style="width: 100%;margin-bottom: 0;">
+     <div id="serviceblock" class="col-md-12" >
+  <h6 style="color: white;">Sairam All
+  <br/>
+  <!-- {{templedetail.ShortDesc}} -->
+  </h6>
+    <label style="color: white; text-align: justify;">{{templedetail}}</label>
+    <!-- <p>{{templedetail.ShortDesc}}</p> -->
+    <label style="color: white">Thank you,<br>
+
+      SDST Executive Committee</label>
+</div>
+  </nb-card>
+ 
+</div>
+<div class="row" style="height: 367px;padding: 16px;">
+  
+  <div  style="padding:unset; width: calc(15% - 16px);" class="col-md-1"> 
+    <img style="height: 335px;  width: 100%;"  src="assets/images/s-left.gif">
+  </div>
+  
+  <!-- <ngx-dashboard-slider style="width: 100%;" ></ngx-dashboard-slider > -->
+    <div style="width: calc(80%); background-image: url('assets/images/s-bg.gif');background-size: 104.5px;padding: unset;margin-left: -3px;background-position: top; padding-top:65px" class="col-md-10"> 
+      <div style="height: 220px;">
+        <ngx-dashboard-slider ></ngx-dashboard-slider >
+      </div>
+     
+    </div>
+    <div style="padding:unset; width: calc(14% - 16px);" class="col-md-1"> <img style="height: 335px; width: 100%;"   src="assets/images/s-right.gif"></div>
+   
+</div>
+<div class="row">
+  
+  <div class="col-xxl-12">
+    <div class="row">
+      <!-- <div class="col-md-6">
+        <ngx-profit-card></ngx-profit-card>
+      </div> -->
+      <!-- <div id='eventblock' class="col-md-4" style="
+      height: 215px;
+      overflow: auto;
+      padding: 0px;
+      margin-bottom: 30px;
+  "><nb-card>
+          <nb-card-header style="border-bottom: 2px solid white;">
+            <span style="color: white;">Upcoming Events</span>
+          </nb-card-header>
+          <ngx-event-list  (someEvent)="someFunction('eventblock')"></ngx-event-list>
+         
+        </nb-card>
+        
+      </div> -->
+      <div id='eventblock' class="col-md-4">
+        <ngx-dashboard-event-list  (someEvent)="someFunction('eventblock')"></ngx-dashboard-event-list>
+       
+      </div>
+      <div class="col-md-4">
+        
+        <ngx-schedule-for-today></ngx-schedule-for-today>
+      </div>
+      <div class="col-md-4">
+          <ngx-schedule-for-nextx-days></ngx-schedule-for-nextx-days>
+      </div>
+      <!-- <div class="col-md-4">
+        <ngx-service-list></ngx-service-list>
+      </div> -->
+      <!-- <div class="col-md-6">
+        <ngx-earning-card></ngx-earning-card>
+      </div> -->
+    </div>
+    <div class="row">
+      
+      <!-- <div id="serviceblock" class="col-md-12" style="
+      height: 350px;
+      overflow: auto;
+      margin-bottom: 30px;
+  ">
+        <ngx-service-list  (someEvent)="someFunction('serviceblock')" > </ngx-service-list>
+      </div> -->
+      <div id="serviceblock" class="col-md-12">
+        <ngx-dashboard-service-list></ngx-dashboard-service-list>
+      </div>
+      
+    </div>
+    <!-- <div class="row">
+      
+      <div id="volunteering" class="col-md-12">
+        <ngx-volunteering-list></ngx-volunteering-list>
+      </div>
+      
+    </div> -->
+    <div class="row">
+      <!-- <div class="col-md-6">
+        <ngx-profit-card></ngx-profit-card>
+      </div> -->
+      
+      <div class="col-md-4">
+        <nb-flip-card [showToggleButton]="false" >
+          <nb-card-front>
+           <nb-card padding size="tiny"> 
+             <nb-card-header style="color: white;">
+               <span>Temple Timings Today​</span>
+             </nb-card-header>
+             
+             <!-- <marquee behavior="scroll"  scrolldelay="150" direction="up" onmouseover="this.stop();" onmouseout="this.start();"> -->
+      
+             <nb-card-body>
+              <nb-list>
+               
+             
+                <nb-list-item  style="float: left;" class="item">
+                  <p><b>Darshan​</b></p>
+                  <span *ngFor=" let timeof of templetimelist"  style="float: left;width: 100%;" class="col-md-12">{{'2021-12-09 '+timeof.FromTime | date:'h:mm a' }} to {{'2021-12-09 '+timeof.ToTime | date:'h:mm a' }} </span>
+                  <!-- <span style="float: left;width: 100%;" class="col-md-12">5:30 PM to 08:30 PM</span> -->
+                </nb-list-item >
+             
+
+              <nb-list-item style="float: left;" class="item">
+                <p><b>Aarti</b></p>
+                <span *ngFor=" let aartitimeof of templetimeArtilist" style="float: left;width: 100%;" class="col-md-12">{{'2021-12-09 '+aartitimeof.FromTime | date:'h:mm a' }} to {{'2021-12-09 '+aartitimeof.ToTime | date:'h:mm a' }} </span>
+              
+              </nb-list-item >
+             
+            
+             </nb-list>
+             </nb-card-body>
+             <!-- </marquee> -->
+            
+           </nb-card>
+         </nb-card-front>
+                 
+       </nb-flip-card>
+      </div>
+      <div class="col-md-8">
+        
+        <nb-flip-card [showToggleButton]="false">
+          <nb-card-front>
+           <nb-card padding size="tiny"> 
+             <nb-card-header style="color: white;">
+               <span>Announcements</span>
+             </nb-card-header>
+             
+       
+             <!-- <marquee behavior="scroll" direction="up" scrolldelay="150" onmouseover="this.stop();" onmouseout="this.start();"> -->
+            <nb-card-body>
+             
+             
+             <ngx-dashboard-announcements></ngx-dashboard-announcements>
+            </nb-card-body>  
+            <!-- </marquee> -->
+            
+           </nb-card>
+         </nb-card-front>
+                 
+       </nb-flip-card>
+      </div>
+      <!-- <div class="col-md-4">
+        <ngx-service-list></ngx-service-list>
+      </div> -->
+      <!-- <div class="col-md-6">
+        <ngx-earning-card></ngx-earning-card>
+      </div> -->
+    </div>
+    <!-- <ngx-traffic-reveal-card></ngx-traffic-reveal-card> -->
+  </div>
+
+  <!-- <div class="col-xxl-7">
+    <ngx-ecommerce-charts></ngx-ecommerce-charts>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xxl-9">
+    <ngx-country-orders></ngx-country-orders>
+  </div>
+
+  <div class="col-xxl-3">
+    <ngx-progress-section></ngx-progress-section>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xxl-9">
+    <ngx-ecommerce-visitors-analytics></ngx-ecommerce-visitors-analytics>
+  </div>
+
+  <div class="col-xxl-3">
+    <ngx-user-activity></ngx-user-activity>
+  </div> -->
+</div>
+<!-- <ngx-paypal [config]="payPalConfig"></ngx-paypal> -->
+
+

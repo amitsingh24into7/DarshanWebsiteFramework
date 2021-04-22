@@ -1,0 +1,145 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <span style="color: white;">Volunteering</span>
+      </nb-card-header>
+      <nb-card-body>
+        <form  [formGroup]="volunteeringForm" (ngSubmit)="onSubmit()">
+          <div class="form-group row">
+            <label for="inputfName" style="color:#192038;" class="label col-sm-3 col-form-label">What would you like to help with​</label>
+            <div class="col-sm-9">
+              <select formControlName="inputfEvent" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputfEvent.errors }">
+                <option *ngFor="let listof of eventlistobj" [value]="listof.EventsID">{{listof.EventsTitle}}</option>
+              </select>
+              <!-- <input  formControlName="inputfName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputfName.errors }" type="text" nbInput fullWidth id="inputfName" placeholder="First  Name"> -->
+              <div *ngIf="submitted && f.inputfEvent.errors" class="invalid-feedback">
+                <div *ngIf="f.inputfEvent.errors.required">Plese select one</div>
+              
+            </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label style="color: #192038;" for="inputfName" class="label col-sm-3 col-form-label">First  Name​</label>
+            <div class="col-sm-9">
+              <input readonly formControlName="inputfName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputfName.errors }" type="text" nbInput fullWidth id="inputfName" placeholder="First  Name">
+              <div *ngIf="submitted && f.inputfName.errors" class="invalid-feedback">
+                <div *ngIf="f.inputfName.errors.required">First  Name Required</div>
+              
+            </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label style="color:#192038;" for="inputName" class="label col-sm-3 col-form-label">Last  Name​</label>
+            <div class="col-sm-9">
+              <input readonly formControlName="inputlName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputlName.errors }"  type="text" nbInput fullWidth id="inputName" placeholder="Last  Name">
+              <div *ngIf="submitted && f.inputlName.errors" class="invalid-feedback">
+                <div *ngIf="f.inputlName.errors.required">Last  Name Required</div>
+            </div>
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <label style="color: #192038;" for="inputEmail1" class="label col-sm-3 col-form-label">Email​</label>
+            <div class="col-sm-9">
+              <input formControlName="inputEmail1" readonly class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputEmail1.errors }" type="email" nbInput fullWidth id="inputEmail1" placeholder="Email">
+              <div *ngIf="submitted && f.inputEmail1.errors" class="invalid-feedback">
+                <div *ngIf="f.inputEmail1.errors.required">Email​ Required</div>
+            </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label style="color:#192038;" for="inputContact" class="label col-sm-3 col-form-label">Contact Number:​</label>
+            <div class="col-sm-9">
+              <select  formControlName="inputC_code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputC_code.errors }" style=" width: 24%; float: left; ">
+               
+                <option value="1">+1</option>
+                <option value="91">+91</option>
+                <option value="97">+97</option>
+              </select>
+              <input  formControlName="inputContact" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputContact.errors }"style="margin-left: 10px;width: calc(76% - 10px);float: left;" type="email" nbInput fullWidth id="inputContact" placeholder="Contact Number">
+              <div *ngIf="submitted && f.inputC_code.errors" class="invalid-feedback">
+                <div *ngIf="f.inputC_code.errors.required">Country Code​ Required</div>
+            </div>
+            <div *ngIf="submitted && f.inputContact.errors" class="invalid-feedback">
+              <div *ngIf="f.inputContact.errors.required">Contact Number​ Required</div>
+          </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="Feedback" class="label col-sm-3 col-form-label">&nbsp;​</label>
+            <div class="col-sm-9">
+              <button  nbButton status="warning" type="sybmit"  class="btn btn-default">Submit</button>
+
+              <button style="margin-left: 20px;"  *ngIf="isback" nbButton status="warning" type="button" (click)="backfunction()"  class="btn btn-default">Cancel</button>
+            </div>
+            <!-- <div  class="col-sm-3">
+             
+            </div> -->
+          </div>
+          
+         
+        </form>
+      </nb-card-body>
+    </nb-card>
+
+   
+  </div>
+
+
+</div>
+<!-- ------------------- List -------------------------- -->
+
+<nb-card padding >
+  <nb-card-header>
+    <div class="row">
+        <span style="color: white;">Volunteering List</span>
+    </div>
+   
+  </nb-card-header> 
+   
+   
+        <nb-card-body>
+          <table style="width: 100%;">
+            <thead>
+              <tr>
+                <th style="text-align: center;">Name</th>
+                <th style="text-align: center;">Email</th>
+                <th style="text-align: center;">Mobile</th>
+                <th style="text-align: center;">Event Detail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of voluntlistobj">
+                <td>
+                  <label>{{item.F_Name + item.L_Name}}</label>
+                </td>
+                <td>
+                  <label><a style="color: unset;" href="mailto:{{item.Email}}" target="_top">{{item.Email}}</a></label>
+                </td>
+                <td>
+                  <label><a style="color: unset;" href="https://web.whatsapp.com/send?phone={{item.Country_Code}}{{item.Mobile}}&text=&source&data" target="_black">{{item.Mobile}}</a></label>
+                </td>
+                <td>
+                  
+                    <div  class="row">
+                      <div style="text-align: center; padding-top: 5px;padding-bottom: 5px;"  class="col-md-8">
+                        {{item.EventsTitle}}
+                      </div>
+                      <div style="padding-top: 5px;padding-bottom: 5px;"  class="col-md-4">
+                        {{item.EventFromDate}}
+                      </div>
+                    </div>
+                   
+                   
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </nb-card-body>
+       
+          
+   
+ </nb-card>

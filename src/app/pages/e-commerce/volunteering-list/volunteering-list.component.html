@@ -1,0 +1,92 @@
+
+<nb-card padding >
+  <nb-card-header>
+    <div class="row">
+        <span style="color: white;">Volunteering List</span>
+    </div>
+   
+  </nb-card-header> 
+   
+    <!-- <nb-list>
+      <nb-list-item class="contact" *ngFor="let item of voluntlistobj"> -->
+        <nb-card-body>
+          <table style="width: 100%;">
+            <thead>
+              <tr>
+                <th style="text-align: center;">Name</th>
+                <th style="text-align: center;">Email</th>
+                <th style="text-align: center;">Mobile</th>
+                <th style="text-align: center;">Event Detail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of voluntlistobj">
+                <td>
+                  <label>{{item.F_Name + item.L_Name}}</label>
+                </td>
+                <td>
+                  <label><a style="color: unset;" href="mailto:{{item.Email}}" target="_top">{{item.Email}}</a></label>
+                </td>
+                <td>
+                  <label><a style="color: unset;" href="https://web.whatsapp.com/send?phone={{item.Country_Code}}{{item.Mobile}}&text=&source&data" target="_black">{{item.Mobile}}</a></label>
+                </td>
+                <td>
+                  
+                    <div  class="row">
+                      <div style="text-align: center; padding-top: 5px;padding-bottom: 5px;"  class="col-md-8">
+                        {{item.EventsTitle}}
+                      </div>
+                      <div style="padding-top: 5px;padding-bottom: 5px;"  class="col-md-4">
+                        {{item.EventFromDate}} -  {{item.EventToDate}}
+                      </div>
+                    </div>
+                   
+                    <!-- <div *ngFor="let itemof of item.timeobj" class="row">
+                      <div style="padding-top: 5px;padding-bottom: 5px;"  class="col-md-3">
+                        {{itemof.Day}}
+                      </div>
+                      <div  style="padding-top: 5px;padding-bottom: 5px;" class="col-md-3">
+                        {{itemof.EventsDate}}
+                      </div>
+
+                      <div style="padding-top: 5px;padding-bottom: 5px;"  class="col-md-6">
+                        {{itemof.FromTime}} -  {{itemof.FromTime}} ({{itemof.timzone}})
+                      </div> 
+                     
+                      
+                    </div>-->
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </nb-card-body>
+       
+          <!-- <div  class="col-md-12">
+            <div  class="row">
+              <div  class="col-md-3">
+                <label></label>
+              </div>
+              <div  class="col-md-3">
+                <label>{{item.Email}}</label>
+              </div>
+              <div  class="col-md-3">
+                <label>{{item.Mobile}}</label> 
+              </div>
+              <div  class="col-md-3">
+                <label>{{item.EventsTitle}}</label> 
+              </div>
+            </div>
+           
+          </div> -->
+         
+        
+      
+        
+       
+       
+      <!-- </nb-list-item>
+    </nb-list>
+   -->
+   
+ </nb-card>

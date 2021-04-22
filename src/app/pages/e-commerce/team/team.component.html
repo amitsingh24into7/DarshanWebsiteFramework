@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12">
+  <nb-card padding>
+    <nb-card-header style="color: white;">
+     Teams
+    </nb-card-header>
+    <nb-card-body>
+      <div  *ngFor="let information of teamlistobj" style="float: left;" class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow vh-50">
+       
+        <a ><img *ngIf="!information.picture" style="height: 200px;" src="assets/images/photo.jpg" class="card-img-top" alt="..."><img *ngIf="information.picture" style="height: 200px;" src="{{imageurl}}darshanapp/{{information.picture}}" class="card-img-top" alt="..."></a>
+        <div style="min-height: 220px;" class="card-body">
+          <label><b>Name:-</b> {{information.name}}</label><br/>
+          <label style="word-break: break-all;"><b>Email:-</b> {{information.Email}}</label><br/>
+          <label><b>Phone:-</b> {{information.Phone}}</label><br/>
+          <label><b>Role:-</b> {{information.Role}}</label>
+        </div> 
+        </div>
+        
+        </div>
+    </nb-card-body>
+  </nb-card>
+  </div>
+  </div>
+  

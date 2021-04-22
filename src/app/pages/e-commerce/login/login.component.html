@@ -1,0 +1,87 @@
+
+<div class="row">
+<div class="col-md-12">
+   
+
+   <nb-card padding >
+      <nb-card-header>
+        <span style="color: white;">Member’s Login​</span>
+      </nb-card-header> 
+      <nb-card-body>
+         
+         
+         <!-- <button class="btn btn-success" (click)="socialSignIn('facebook')">Sign in with Facebook</button> -->
+           
+         <button *ngIf="!islogin" class="btn btn-success" (click)="socialSignIn('google')" >Sign In with Google</button>
+      </nb-card-body>
+      
+     </nb-card>
+
+
+</div>
+<!-- <div class="col-md-6">
+   <nb-card padding >
+      <nb-card-header>
+        <span style="color: white;">Stay Connected​</span>
+      </nb-card-header> 
+      <nb-card-body>
+         <form [formGroup]="stayConnectedForm" (ngSubmit)="onSubmitform()">
+            
+            <div class="form-group row">
+              <label for="inputEmail1" class="label col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input formControlName="inputemail" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputemail.errors }" type="email" nbInput fullWidth id="inputEmail1" placeholder="Enter Email address here​">
+                <div *ngIf="submitted && f.inputemail.errors" class="invalid-feedback">
+                  <div *ngIf="f.inputemail.errors.required">Email is required</div>
+              </div>
+              </div>
+            </div>
+           
+             <div class="form-group row">
+               <label for="inputName" class="label col-sm-3 col-form-label">Phone Number</label>
+               <div class="col-sm-9">
+                  <select formControlName="inputc_code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputc_code.errors }"   style="
+                  width: 79px;
+                  float: left;
+              " selected="1">
+                     <option value="91">+91</option>
+                     <option value="97">+97</option>
+                   </select>
+                  <input formControlName="inputPhone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputPhone.errors }" style="margin-left: 10px; float: left;
+                  width: 67%;" type="number" nbInput fullWidth id="inputPhone" placeholder="Phone Number">
+                  <div *ngIf="submitted && f.inputc_code.errors" class="invalid-feedback">
+                     <div *ngIf="f.inputc_code.errors.required">Please select country code</div>
+                 </div>
+                 <div *ngIf="submitted && f.inputPhone.errors" class="invalid-feedback">
+                  <div *ngIf="f.inputPhone.errors.required">Phone number is required</div>
+              </div>
+               </div>
+               <div class="form-group row">
+                  <div class="col-sm-12">
+                     <input [ngClass]="{ 'is-invalid': submitted && f.policy.errors }"   formControlName="policy" type="checkbox" status="warning"> &nbsp;&nbsp;&nbsp;I agree to the privacy policy
+                     <div *ngIf="submitted && f.inputPhone.errors" class="invalid-feedback">
+                        <div *ngIf="f.inputPhone.errors.required">Please check privacy policy </div>
+                    </div>
+                  </div>
+               </div>
+             </div>
+            <div class="form-group row">
+               <div class="col-sm-9">
+                  <button  nbButton status="warning" type="submit"  class="btn btn-default">Join</button>
+                </div>
+               
+             </div>
+            
+           
+          </form>
+
+         
+
+
+      </nb-card-body>
+      
+     </nb-card>
+</div> -->
+
+
+</div>

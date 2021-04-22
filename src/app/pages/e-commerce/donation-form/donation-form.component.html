@@ -1,0 +1,138 @@
+<nb-card>
+
+
+  <nb-card-body>
+  <nb-card *ngIf="!isnormalform">
+        <table style="width: 100%;">
+          <thead>
+            <tr>
+              <th>Service Title</th>
+              <!-- <th>Currency</th> -->
+              <th>Amount</th>
+              <th>Service LongDesc</th>
+            </tr>
+            
+
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{requestdata.ServiceTitle}}</td>
+              <!-- <td> {{requestdata.ServiceCurrency}}</td> -->
+              <td> {{requestdata.ServiceCurrency}} {{requestdata.ServiceAmount}}</td>
+              <td> {{requestdata.ServiceLongDesc}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-lg-4" style="margin-top: 20px;margin-bottom: 20px;">
+            <button *ngIf='!islogin' style="padding: 10px; width: calc(50%); float: left;" nbButton status="warning" type="button" (click)="callDonatemodule('Guest')" class="btn btn-default">Donate As Guest </button>
+          </div>
+          <div class="col-lg-4" style="margin-top: 20px;margin-bottom: 20px;">
+            <button *ngIf='!islogin' style="padding: 10px; width: calc(50% ); float: left;"  nbButton status="warning" type="button" (click)="callDonatemodule('Member')" class="btn btn-default">Donate As Member</button>
+          </div>
+      </div>
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal> 
+    </nb-card>
+    <!-- use for event------------------ -->
+    <!-- <nb-card *ngIf="isevent">
+     
+      <table style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Service Title</th>
+            <th>Currency</th>
+            <th>Amount</th>
+            <th>Service LongDesc</th>
+          </tr>
+          
+
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{eventrequestdata.EventsTitle}}</td>
+            <td> {{eventrequestdata.ServiceCurrency}}</td>
+            <td> {{eventrequestdata.ServiceAmount}}</td>
+            <td> {{eventrequestdata.EventsLongDesc}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="col-lg-4" style="margin-top: 20px;margin-bottom: 20px;">
+          <button *ngIf='!islogin' style="padding: 10px; width: calc(50%); float: left;" nbButton status="warning" type="button" (click)="callDonatemodule('Guest')" class="btn btn-default">Donate As Guest </button>
+        </div>
+        <div class="col-lg-4" style="margin-top: 20px;margin-bottom: 20px;">
+          <button *ngIf='!islogin' style="padding: 10px; width: calc(50% ); float: left;"  nbButton status="warning" type="button" (click)="callDonatemodule('Member')" class="btn btn-default">Donate As Member</button>
+        </div>
+    </div>
+      <ngx-paypal [config]="payPalConfig"></ngx-paypal> 
+  </nb-card> -->
+
+    <nb-card *ngIf="isnormalform"padding >
+      <nb-card-header>
+        <span style="color: white;"> Donate For {{eventrequestdata.EventsTitle}}​</span>
+      </nb-card-header> 
+      <nb-card-body>
+
+        <!-- {{eventrequestdata|json}} -->
+         <form [formGroup]="donationForm" (ngSubmit)="onSubmit()">
+          
+             <div class="form-group row">
+              <label for="inputCurrency" class="label col-sm-3 col-form-label">Currency</label>
+              <div class="col-sm-9">
+                 <select [disabled]="submitted"  id="Currency" formControlName="currency" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.currency.errors }">
+                    <option *ngFor="let item of currencylist"  [value]="item.ConfigVal">{{item.ConfigVal}}</option>
+                   
+                  </select>
+                  <div *ngIf="submitted && f.currency.errors" class="invalid-feedback">
+                    <div *ngIf="f.currency.errors.required">Currency is required</div>
+                </div>
+              </div>              
+            </div>
+            <div class="form-group row">
+              <label for="inputAmount" class="label col-sm-3 col-form-label">Amount</label>
+              <div class="col-sm-9">
+                <input [readonly]="submitted" type="number" formControlName="inputAmount" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.inputAmount.errors }" nbInput fullWidth id="inputAmount" placeholder="Amount">
+                <div *ngIf="submitted && f.inputAmount.errors" class="invalid-feedback">
+                  <div *ngIf="f.inputAmount.errors.required">Amount is required</div>
+                
+              </div>
+              </div>
+              
+            </div>
+            <div class="form-group row">
+              <label for="inputDescription" class="label col-sm-3 col-form-label">Long Description</label>
+              <div class="col-sm-9">
+                <textarea [readonly]="submitted"  rows="6" formControlName="inputDescription" class="form-control" [(ngModel)]="eventrequestdata.EventsShortDesc" [ngClass]="{ 'is-invalid': submitted && f.inputDescription.errors }"  id="inputDescription" placeholder="Long Description" ></textarea>
+                <div *ngIf="submitted && f.inputDescription.errors" class="invalid-feedback">
+                  <div *ngIf="f.inputDescription.errors.required">Long Description is required</div>
+                
+              </div>
+              </div>
+              
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-3">
+                  <!-- <button *ngIf="!submitted"  nbButton status="warning" type="submit"  class="btn btn-default">Donate Now</button> -->
+                </div>
+                <div class="col-sm-2">
+                    <button *ngIf="!submitted"  nbButton status="warning" type="submit"  class="btn btn-default">Donate Now</button>
+                  </div>
+                <div class="col-sm-7">
+                    <button (click)="Cancelfunction()"  nbButton status="warning" type="button"  class="btn btn-default">Cancel</button>
+                  </div>
+               
+             </div>
+            
+           
+          </form>
+
+         
+          <ngx-paypal [config]="payPalConfig"></ngx-paypal> 
+
+      </nb-card-body>
+      
+     </nb-card>
+  </nb-card-body>
+</nb-card>

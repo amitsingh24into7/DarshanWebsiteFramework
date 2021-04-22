@@ -1,0 +1,73 @@
+<nb-flip-card [showToggleButton]="false"   [flipped]="flipped">
+  <nb-card-front  >
+   <nb-card padding  size="tiny" >
+    <nb-card-header>
+      <div class="row">
+        <div  class="col-md-7">
+          <span>Services</span>
+        </div>
+        <div  class="col-md-2">
+          <span>At Temple</span>
+        </div>
+        <div  class="col-md-2">
+          <span>At Home / Office</span>
+        </div>
+      </div>
+     
+    </nb-card-header> 
+     
+      <nb-list>
+        <nb-list-item class="contact" *ngFor="let item of servicelistobj">
+          <div style="width: 100%;" class="row">
+            <div style="margin-bottom: 5px;" class="col-md-7">
+              <nb-user  style="cursor: pointer; z-index: 2040;" (click)="toggleView(item);someEvent.emit('data')" [picture]="imageurl+item.ImageURL"  [name]="item.ServiceTitle" size="large"></nb-user>
+            </div>
+            <div style="margin-bottom: 5px;" class="col-md-2">
+              <button *ngIf="item.ServiceAmount"  style="float: left;" nbButton status="warning" type="button" (click)='callDonatemodule(item,item.ServiceAmount)' class="btn btn-default">{{ item.ServiceCurrency }} {{item.ServiceAmount | currency:item.ServiceCurrency:true}}</button>
+            </div>
+            <div style="margin-bottom: 5px;"  class="col-md-2">
+              <button  *ngIf="item.Service_Amount_Office>0"   style="float: left;margin-left: 2%;" nbButton status="warning" type="button" (click)='callDonatemodule(item,item.Service_Amount_Office)' class="btn btn-default">{{ item.ServiceCurrency }} {{item.Service_Amount_Office | currency:item.ServiceCurrency:true}}</button>
+            </div>
+          </div>
+        
+          
+         
+         
+        </nb-list-item>
+      </nb-list>
+    
+     
+   </nb-card>
+
+
+ </nb-card-front>
+ <nb-card-back *ngIf="serviceDetail">
+   <nb-card size="tiny" style="overflow-x: overlay;">
+    <nb-card-header style="cursor: pointer;" (click)="toggleView()">
+     
+      <span  style="z-index: 0;">{{ serviceDetail.ServiceTitle }}
+        
+      </span>
+     
+    </nb-card-header>
+    <nb-card-body>
+      <img style="width: 100%;" [src]="imageurl+serviceDetail.ImageURL"/>
+     <p  *ngIf="serviceDetail.ServiceShortDesc">{{ serviceDetail.ServiceShortDesc }}</p>
+      <p  *ngIf="serviceDetail.ServiceLongDesc">{{ serviceDetail.ServiceLongDesc }}</p>
+      <div style="width: 100%;" class="row">
+        <div style="margin-bottom: 5px;text-align:center" class="col-md-6">
+          <button  style="font-size: 9px;" nbButton status="warning" type="button" (click)='callDonatemodule(serviceDetail,serviceDetail.ServiceAmoun)' class="btn btn-default">Book At Temple ({{ serviceDetail.ServiceCurrency }} {{serviceDetail.ServiceAmount | currency:serviceDetail.ServiceCurrency:true}})</button>
+
+        </div>
+        <div style="margin-bottom: 5px;text-align:center" class="col-md-6">
+          <button  style="font-size: 9px;" *ngIf="serviceDetail.Service_Amount_Office>0"  nbButton status="warning" type="button" (click)='callDonatemodule(serviceDetail,serviceDetail.Service_Amount_Office)' class="btn btn-default">Book At Home / Office ({{ serviceDetail.ServiceCurrency }} {{serviceDetail.Service_Amount_Office | currency:serviceDetail.ServiceCurrency:true}})</button>
+        </div>
+      </div>
+       
+    
+    </nb-card-body>
+     <nb-icon   style="float: right; cursor: pointer;" icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></nb-icon>
+   </nb-card>
+ </nb-card-back>
+ 
+</nb-flip-card>

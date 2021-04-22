@@ -1,0 +1,146 @@
+<!-- <nb-card>
+  <nb-card-header>
+    Temple Timings
+  </nb-card-header>
+
+  <nb-card-body>
+  <table style="width: 100%;">
+    <thead>
+      <tr>
+        <th colspan="3">TEMPLE HOURS</th>
+        <th>AARTI HOURS</th>
+      </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <th> Morning Hours</th>
+        <th> Evening Hours</th>
+        <th> &nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Monday         </td>
+        <td>9:30 AM - 1:00 PM</td>
+        <td>5:30 PM - 8:30 PM</td>
+        <td>Kakad Aarti: Daily 09.30 AM</td>
+      </tr>
+      <tr>
+        <td>Tuesday</td>
+        <td>9:30 AM - 1:00 PM</td>
+        <td>5:30 PM - 8:30 PM</td>
+        <td>(Thursday at 6.30 AM)</td>
+      </tr>
+      <tr>
+        <td>Wednesday</td>
+        <td>9:30 AM - 1:00 PM</td>
+        <td>5:30 PM - 8:30 PM</td>
+        <td>Madhyan Aarti: Daily 12.30 PM</td>
+      </tr>
+      <tr>
+        <td>Thursday</td>
+        <td>9:30 AM - 1:00 PM </td>
+        <td>5:30 PM - 9:30 PM</td>
+        <td>Dhoop Aarti: Daily 06.30 PM</td>
+      </tr>
+      <tr>
+        <td>Friday</td>
+        <td>9:30 AM - 1:00 PM</td>
+        <td>5:30 PM - 8:30 PM</td>
+        <td>Shej Aarti: Daily 08.00 PM</td>
+      </tr>
+      <tr>
+        <td>Saturday</td>
+        <td>9:30 AM - 1:30 PM</td>
+        <td>5:30 PM - 8:30 PM</td>
+        <td>(Thursday at 08.30 PM)</td>
+      </tr>
+      <tr>
+        <td>Sunday</td>
+        <td>9:30 AM - 1:30 PM</td>
+        <td> 5:30 PM - 8:30 PM</td>
+        <td>&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+  </nb-card-body>
+</nb-card> -->
+<nb-card padding > 
+  <nb-card-header>
+    <span style="color: white;">Temple Hours</span>
+  </nb-card-header>
+ 
+  <nb-card-body>
+    
+      <nb-list>
+         <nb-list-item class="contact" >
+           <!-- <div class="row">
+             <div  *ngFor="let item of templetimelist" class="col-lg-3" >  {{item.FromTime}} To  {{item.ToTime }}  </div>
+           
+           </div> -->
+
+           <table style="width: 100%;">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th> From/To Time </th>
+                <th>Timzone</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of templetimelist">
+                <td>{{item.Day}}        </td>
+                <td>{{'2021-12-09 '+item.FromTime | date:'h:mm a'}} To  {{'2021-12-09 '+item.ToTime | date:'h:mm a'}}</td>
+                
+                <td> {{item.timzone }}</td>
+              </tr>
+            </tbody>
+            </table>
+           
+        </nb-list-item>
+      </nb-list>
+    
+    
+  </nb-card-body>
+
+</nb-card>
+<nb-card padding > 
+  <nb-card-header>
+    <span style="color: white;">Aarti Hours</span>
+  </nb-card-header>
+ 
+  <nb-card-body>
+    
+      <nb-list>
+         <nb-list-item class="contact" >
+           <div class="row">
+             <!-- <div  *ngFor="let item of templetimeArtilist" class="col-lg-3" >{{item.FromTime}} To {{item.ToTime }}  </div> -->
+             <!-- Timzone :- {{item.timzone}} -->
+
+             <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th> From/To Time </th>
+                  <th>Timzone</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of templetimeArtilist">
+                  <td>{{item.Day}}         </td>
+                  <td>{{'2021-12-09 '+item.FromTime | date:'h:mm a' }} To  {{'2021-12-09 '+item.ToTime | date:'h:mm a' }}</td>
+                  
+                  <td> {{item.timzone }}</td>
+                </tr>
+              </tbody>
+              </table>
+           </div>
+           
+        </nb-list-item>
+      </nb-list>
+    
+    
+  </nb-card-body>
+
+</nb-card>

@@ -1,0 +1,17 @@
+.nb-theme-default {
+    nb-tabset {
+        .tab.active {
+            .tab-link{
+                color: white !important;
+            }
+        }
+    }
+}
+a{
+    .tab-link {
+        color: white !important;
+    }
+}
+ol-xl-3.col-md-6.mb-4 {
+    float: left;
+}
